@@ -16,7 +16,7 @@ namespace GradeBook.GradeBooks
         public override char GetLetterGrade(double averageGrade)
         {
 
-            if (Students.Count < 5) throw new InvalidOperationException("Must be at least 5 students");
+            if (Students.Count < 5) throw new InvalidOperationException("Ranked Grading requires at least 5 students.");
             var top20percent = (int)( Students.Count * 0.2);
             var orderedStudents = Students.OrderByDescending(e => e.AverageGrade);
             var grades = orderedStudents.Select(e => e.AverageGrade).ToArray();
@@ -38,6 +38,12 @@ namespace GradeBook.GradeBooks
         {
             if (Students.Count < 5) Console.WriteLine("Ranked Grading requires at least 5 students.");
             else base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < 5) Console.WriteLine("Ranked Grading requires at least 5 students.");
+            else base.CalculateStudentStatistics(name);
         }
     }
 }
