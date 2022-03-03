@@ -5,9 +5,9 @@ using System.Text;
 
 namespace GradeBook.GradeBooks
 {
-    internal class StandardGradeBook : BaseGradeBook
+    public class StandardGradeBook : BaseGradeBook
     {
-        StandardGradeBook(string name) : base(name)
+        public StandardGradeBook(string name) : base(name)
         {
             Type = GradeBookType.Standard;
         }
